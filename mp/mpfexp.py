@@ -81,6 +81,7 @@ class MpFileExplorer(Pyboard):
 
         try:
             Pyboard.__init__(self, self.__con_from_str(constr))
+            print(3)
         except Exception as e:
             raise ConError(e)
 

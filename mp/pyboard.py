@@ -28,7 +28,6 @@ class PyboardError(BaseException):
 class Pyboard:
 
     def __init__(self, conbase):
-
         self.con = conbase
 
     def close(self):
@@ -60,7 +59,7 @@ class Pyboard:
         return data
 
     def enter_raw_repl(self):
-
+        print(time.time())
         # waiting any board boot start and enter micropython
         time.sleep(0.05)
         self.con.write(b'\x03')
@@ -115,6 +114,8 @@ class Pyboard:
                 raise PyboardError('could not enter raw repl, auto try again.(2)')
 
         time.sleep(0.05)
+        print(time.time())
+
 
     def exit_raw_repl(self):
         self.con.write(b'\r\x02')  # ctrl-B: enter friendly REPL
